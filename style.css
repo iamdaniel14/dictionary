@@ -1,0 +1,71 @@
+*{
+
+padding: 0px;
+margin: 0px;
+box-sizing: border-box;
+}
+#header-section{
+width: 800px;
+margin: 10px;
+margin-right: auto;
+margin-left: auto;
+display: flex;
+justify-content: center;
+align-self: center;
+}
+
+#headline {
+font-size: 100px;
+}
+
+#main-container{
+width: 800px;
+background-color: bisque;
+margin-top: 10px;
+margin-left: auto;
+margin-right: auto;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+}
+.paragraph{
+font-size: 24px;
+color: brown;
+}
+.part-of-speech{
+font-size: 20px;
+color: black;
+}
+.word {
+font-size: 24px;
+color: white;
+}
+.word::first-letter{
+text-transform: capitalize;
+    
+}
+.sourceDictionary{
+font-size: 24px;
+color: blueviolet;
+}
+.sub-container{
+background-color:rgba(200, 100, 100, 10); 
+width: 70%;
+margin: 20px;
+
+}
+#search-container{
+width: 800px;
+margin-top: 100px;
+margin-right: auto;
+margin-left: auto;
+display: flex;
+justify-content: flex-end;
+}
+
+input[type=text],#searchButton {
+width: 200px;
+height: 40px;
+}
