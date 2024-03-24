@@ -94,7 +94,18 @@ display: flex;
 justify-content: flex-end;
 }
 
-input[type=text],#searchButton {
+input[type=text] {
+width: 200px;
+font-family: "Ultra", serif;
+color: white;
+padding: 20px;
+height: 40px;
+border-radius: 50px;
+border: none;
+background-color:  rgb(195, 149, 149);
+}
+
+#searchButton {
 width: 200px;
 font-family: "Ultra", serif;
 color: white;
@@ -102,9 +113,7 @@ height: 40px;
 border-radius: 50px;
 border: none;
 background-color:  rgb(195, 149, 149);
-;
-
-}
+    }
 input[type=text]::placeholder{
 color: brown;
 font-family: "Ultra", serif;
