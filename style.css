@@ -5,6 +5,7 @@ box-sizing: border-box;
 }
 
 body{
+width: 100%;
 background-color: grey;
 }
 #header-section{
@@ -14,27 +15,54 @@ margin-right: auto;
 margin-left: auto;
 display: flex;
 justify-content: center;
-align-self: center;
+align-self: center; 
 }
 
 #headline {
 font-size: 100px;
 }
-
-#searched-word-container{
-width: 800px;
-margin-left: auto;
-margin-right: auto;
+#small-container{
 display: flex;
-justify-content: center;
+justify-content: end;
 }
 
-#searched-word-sub-container{
-width: 70%;
+#searched-word-container{
+width: 80%;
+display: flex;
+/* justify-content: center; */
+margin-left: auto;
+margin-right: auto;
+}
+
+.searched-word-sub-container{
+width: 80%;
+display: flex;
+justify-content: center; 
+margin-left: auto;
+margin-right: auto;
+}
+
+
+.search-small-container{
+ width: 20%;
+
+}
+
+.content-main-container{
+width: 100%;
+
+}
+
+.content-container{
+width: 80%;
+display: flex;
+margin-right: auto;
+margin-left: auto;
+
 }
 
 #main-container{
-width: 800px;
+width: 80%;
 background-color: bisque;
 margin-top: 10px;
 margin-left: auto;
@@ -45,6 +73,26 @@ justify-content: center;
 align-items: center;
 }
 
+
+.related-words-container{ 
+width: 20%;
+height: max-content;
+margin-top: 10px;
+background-color: rgb(226, 207, 207);
+display: flex;
+flex-direction: column;
+    }
+
+
+#search-container{
+width: 80%;
+margin-top: 100px;
+display: flex;
+justify-content: flex-end;
+margin-right: auto;
+margin-left: auto;
+        }
+    
 .searched-word{
 font-size: 30px;
 font-family: "Ultra", serif;
@@ -52,7 +100,7 @@ color: rgb(14, 1, 1);
 font-style: normal;
 }
 .searched-word::first-letter{
-    text-transform: capitalize;
+text-transform: capitalize;
 }
 .sub-container{
 background-color:rgba(200, 100, 100, 10); 
@@ -71,7 +119,8 @@ padding: 10px;
 
 }
 .word {
-font-family: "roboto", sans-serif;font-size: 24px;
+font-family: "roboto", sans-serif;
+font-size: 24px;
 font-size: 24px;
 color: white;
 padding: 10px;
@@ -85,30 +134,18 @@ font-size: 24px;
 color: blueviolet;
 }
 
-#search-container{
-width: 800px;
-margin-top: 100px;
-margin-right: auto;
-margin-left: auto;
-display: flex;
-justify-content: flex-end;
-}
-
 input[type=text] {
 width: 200px;
 font-family: "Ultra", serif;
-color: white;
 padding: 20px;
 height: 40px;
 border-radius: 50px;
 border: none;
-background-color: white;
 }
 
 #searchButton {
 width: 200px;
 font-family: "Ultra", serif;
-color: white;
 height: 40px;
 border-radius: 50px;
 border: none;
@@ -121,3 +158,19 @@ padding: 10px;
 padding: 24px;
 color: rgb(216, 194, 194);
 }
+
+.similar-word{
+font-size:18px;
+font-family: "roboto", sans-serif;
+padding: 10px 0px 0px 30px;
+}
+.relationship-type{
+font-size: 20px;
+font-family: "roboto", sans-serif;
+padding: 10px 0px 0px 30px;
+
+}
+
+.relationship-type::first-letter {
+text-transform: capitalize;
+    }
