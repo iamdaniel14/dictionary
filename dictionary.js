@@ -6,12 +6,31 @@ const SEARCH_BUTTON =document.querySelector ('#searchButton');
 const SEARCHED_WORD=document.querySelector("#searchedWord");
 const RELATED_WORDS_CONTAINER=document.querySelector(".related-words-container");
 
+const SEARCHED_WORD_CONTAINER=document.querySelector ("#searched-word-container");
+let  MINI_CONTAINER=document.querySelector (".search-mini-container");
+
+console.log(MINI_CONTAINER);
+
+
+const sound =document.querySelector(".audio-container");
+
 
 SEARCH_BUTTON.addEventListener ("click", ()=>{
+//  SEARCHED_WORD_CONTAINER.innerHTML="";
+
 let word=(word_input.value).trim ().toLowerCase();
 words (word);
-SEARCHED_WORD.innerHTML=word;
-SEARCHED_WORD.classList.add ("searched-word");
+
+
+MINI_CONTAINER.innerHTML=`
+<div class="searchedWord"> <h1>home</h1></div>
+<div class="volume-up"> 
+<button onclick="soundPlay()" > <img class="icons" src="img/Speaker_Icon.svg.png" alt=""> 
+</button> 
+</div>
+
+` 
+
 
 
 });
@@ -20,18 +39,25 @@ async function words (word){
 try { 
 let Response= await fetch (`https://api.wordnik.com/v4/word.json/${word}/definitions?limit=200&includeRelated=false&useCanonical=false&includeTags=false&api_key=c1raqaa3pes2o7qqqkgrrgmtv4qe9qx181le2gy2xqs148ief`);
 let data = await Response.json();
+ 
+let filteredData=data.filter(definition=>{ 
+return ( typeof definition.text !=="undefined") ; //return true if data is not undefined
+ })
+   
+    displayData (filteredData); //call the displayData function
 
 
 let ResponseRelatedWord=await fetch (`https://api.wordnik.com/v4/word.json/${word}/relatedWords?useCanonical=false&limitPerRelationshipType=10&api_key=c1raqaa3pes2o7qqqkgrrgmtv4qe9qx181le2gy2xqs148ief`);
 let relatedWordsJason = await ResponseRelatedWord.json();
 // console.log (relatedWordsJason);
 showRelatedWord(relatedWordsJason);
- 
-let filteredData=data.filter(definition=>{ 
- return ( typeof definition.text !=="undefined") ; //return true if data is not undefined
- })
 
- displayData (filteredData); //call the displayData function
+
+let AudioResponse= await fetch (`https://api.wordnik.com/v4/word.json/${word}/audio?useCanonical=false&limit=1&api_key=c1raqaa3pes2o7qqqkgrrgmtv4qe9qx181le2gy2xqs148ief`);
+
+let audioData = await AudioResponse.json ();
+displayAudio (audioData)
+
 
 } catch (err){
 console.error(err);
@@ -97,3 +123,18 @@ RELATED_WORDS_CONTAINER.appendChild(words_container);
 })
 
  }
+
+ function displayAudio (audioData){
+audioData.forEach((data)=>{
+console.log (data.fileUrl);
+sound.setAttribute ("src",data.fileUrl);
+console.log(sound);
+})
+
+ }
+
+ function soundPlay (){
+
+sound.play ();
+ }
+
