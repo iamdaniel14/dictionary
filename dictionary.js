@@ -23,7 +23,7 @@ words (word);
 
 
 MINI_CONTAINER.innerHTML=`
-<div class="searchedWord"> <h1>home</h1></div>
+<div class="searchedWord"> <h1> ${word}</h1></div>
 <div class="volume-up"> 
 <button onclick="soundPlay()" > <img class="icons" src="img/Speaker_Icon.svg.png" alt=""> 
 </button> 
